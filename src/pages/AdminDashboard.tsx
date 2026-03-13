@@ -7,8 +7,16 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import io from 'socket.io-client';
 import { adminAPI } from '../services/api';
 
-// Socket.io connection - use empty string to let socket.io use the current host with proxy
-const socket = io('');
+// Socket.io connection - connect to backend URL in production
+const getSocketUrl = () => {
+  const apiUrl = import.meta.env.VITE_API_URL || '';
+  if (apiUrl) {
+    return apiUrl.replace('/api', '');
+  }
+  return '';
+};
+
+const socket = io(getSocketUrl());
 
 const AdminDashboard = () => {
   const navigate = useNavigate();

@@ -10,8 +10,16 @@ import io from 'socket.io-client';
 import { useAuth } from '../context/AuthContext';
 import { depositAPI, walletAPI } from '../services/api';
 
-// Socket.io connection - use empty string to let socket.io use the current host with proxy
-const socket = io('');
+// Socket.io connection - connect to backend URL in production
+const getSocketUrl = () => {
+  const apiUrl = import.meta.env.VITE_API_URL || '';
+  if (apiUrl) {
+    return apiUrl.replace('/api', '');
+  }
+  return '';
+};
+
+const socket = io(getSocketUrl());
 
 const Deposit = () => {
   const navigate = useNavigate();
@@ -214,18 +222,9 @@ const Deposit = () => {
                   UPI ID: <strong>{depositData.upiId}</strong>
                 </Typography>
 
-                <Button
-                  fullWidth
-                  variant="contained"
-                  startIcon={<PaymentIcon />}
-                  onClick={handleOpenUPI}
-                  sx={{ 
-                    background: 'linear-gradient(135deg, #667eea, #764ba2)',
-                    mb: 2
-                  }}
-                >
-                  Open UPI App
-                </Button>
+                <Typography variant="body2" sx={{ color: '#666', mt: 2 }}>
+                  Scan the QR code with your UPI app to pay ₹{depositData.amount}
+                </Typography>
               </CardContent>
             </Card>
           </Grid>
