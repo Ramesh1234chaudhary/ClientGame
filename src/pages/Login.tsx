@@ -160,6 +160,19 @@ const Login = () => {
             </GoogleOAuthProvider>
           )}
 
+          {/* Admin Login Link */}
+          <Typography variant="body2" sx={{ color: '#666', mt: 2 }}>
+            Are you an admin?{' '}
+            <Button
+              variant="text"
+              size="small"
+              onClick={() => navigate('/admin-login')}
+              sx={{ textTransform: 'none', fontWeight: 600 }}
+            >
+              Admin Login
+            </Button>
+          </Typography>
+
           {/* Info */}
           <Typography variant="body2" sx={{ color: '#999', mt: 3, fontSize: 12 }}>
             By continuing, you agree to our Terms & Conditions
