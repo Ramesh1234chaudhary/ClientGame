@@ -63,6 +63,14 @@ export const gameAPI = {
   getTopWinners: () => api.get('/game/top-winners'),
 };
 
+// Plinko API
+export const plinkoAPI = {
+  play: (betAmount: number, rows: number) => api.post('/plinko/play', { betAmount, rows }),
+  getHistory: (page = 1, limit = 20) => api.get(`/plinko/history?page=${page}&limit=${limit}`),
+  getLeaderboard: (limit = 10) => api.get(`/plinko/leaderboard?limit=${limit}`),
+  getRecentWins: (limit = 10) => api.get(`/plinko/recent-wins?limit=${limit}`),
+};
+
 // Deposit API
 export const depositAPI = {
   create: (amount: number) => api.post('/deposit/create', { amount }),

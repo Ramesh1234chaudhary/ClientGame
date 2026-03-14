@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import AdminSecretLogin from './pages/AdminSecretLogin';
 import Dashboard from './pages/Dashboard';
 import Game from './pages/Game';
+import Plinko from './pages/Plinko';
 import Deposit from './pages/Deposit';
 import Withdraw from './pages/Withdraw';
 import TransactionHistory from './pages/TransactionHistory';
@@ -75,6 +76,7 @@ function App() {
             <Route path="/admin-login" element={<AdminSecretLogin />} />
             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
             <Route path="/game" element={<ProtectedRoute><Game /></ProtectedRoute>} />
+            <Route path="/plinko" element={<ProtectedRoute><Plinko /></ProtectedRoute>} />
             <Route path="/deposit" element={<ProtectedRoute><Deposit /></ProtectedRoute>} />
             <Route path="/withdraw" element={<ProtectedRoute><Withdraw /></ProtectedRoute>} />
             <Route path="/transactions" element={<ProtectedRoute><TransactionHistory /></ProtectedRoute>} />

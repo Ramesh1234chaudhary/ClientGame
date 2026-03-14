@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Card, CardContent, Typography, Button, Grid, Avatar, Chip, TextField, Dialog, DialogTitle, DialogContent, DialogActions, Snackbar, Alert } from '@mui/material';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import CasinoIcon from '@mui/icons-material/Casino';
 import PaymentIcon from '@mui/icons-material/Payment';
 import HistoryIcon from '@mui/icons-material/History';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
@@ -107,6 +108,26 @@ const Dashboard = () => {
               </Box>
               <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>Play Game</Typography>
               <Typography variant="body2" sx={{ color: '#666' }}>Bet ₹10, Win ₹20</Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+
+        {/* Plinko Game */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Card 
+            sx={{ 
+              cursor: 'pointer', 
+              transition: 'all 0.3s',
+              '&:hover': { transform: 'translateY(-8px)', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }
+            }}
+            onClick={() => navigate('/plinko')}
+          >
+            <CardContent sx={{ textAlign: 'center', padding: 3 }}>
+              <Box sx={{ background: 'linear-gradient(135deg, #00d4ff, #0099cc)', borderRadius: '50%', width: 80, height: 80, display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px' }}>
+                <CasinoIcon sx={{ fontSize: 40, color: 'white' }} />
+              </Box>
+              <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>Plinko</Typography>
+              <Typography variant="body2" sx={{ color: '#666' }}>Up to 20x!</Typography>
             </CardContent>
           </Card>
         </Grid>
